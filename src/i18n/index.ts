@@ -1,8 +1,18 @@
 import { ref, watch } from "vue";
 import type { Language } from "@/types";
 
+const getLocalLang = (): Language => {
+  const savedLang = localStorage.getItem("lang") as Language;
+  if (savedLang === "zh" || savedLang === "en" || savedLang === "ja") {
+    return savedLang;
+  } else {
+    const _: never = savedLang;
+    return "zh";
+  }
+};
+
 // 默认语言为中文
-export const currentLanguage = ref<Language>("zh");
+export const currentLanguage = ref<Language>(getLocalLang());
 
 // 语言文本内容
 export const i18nMessages = {
@@ -10,7 +20,7 @@ export const i18nMessages = {
     name: "夜永awa",
     title: "夜永awa按钮",
     welcome: "酱酱！欢迎来到夜永awa音声按钮站~",
-    tips: `你好，这里是开发者（B站 @幻夜つかさ）！个人精力有限，欢迎帮忙收集音声。
+    tips: `个人精力有限，欢迎帮忙收集音声（以及翻译，尤其英文）。
 新增方式：上Github提交Pull Request或Issue。
 声明：本项目仅为粉丝作品，和夜永awa本人没有关联。`,
     viewOnGithub: "在GitHub上查看",
@@ -20,7 +30,7 @@ export const i18nMessages = {
     name: "Yoeawa",
     title: "Yoeawa Button",
     welcome: "Jang Jang! Welcome to Yoeawa's voice button website~",
-    tips: `Hello, this is the developer (Bilibili @幻夜つかさ)! Due to limited personal energy, help collecting voice clips is appreciated.
+    tips: `Due to limited personal energy, help collecting voice clips (and translations, especially in English) is appreciated.
 How to add: Submit a Pull Request or Issue on Github.
 Disclaimer: This project is a fan work and has no affiliation with Yoeawa herself.`,
     viewOnGithub: "View on GitHub",
@@ -30,26 +40,13 @@ Disclaimer: This project is a fan work and has no affiliation with Yoeawa hersel
     name: "夜永awa",
     title: "夜永awaボタン",
     welcome: "ジャンジャン！夜永awaの音声ボタンサイトへようこそ～",
-    tips: `こんにちは、開発者です（ビリビリ @幻夜つかさ）！個人の力には限りがあるので、音声の収集にご協力いただければ幸いです。
+    tips: `個人の力には限りがあるので、音声の収集にご協力いただければ幸いです（翻訳も、特に英語で）。
 追加方法：GitHubでPull RequestまたはIssueを提出してください。
 免責事項：このプロジェクトはファン作品であり、夜永awa本人とは一切関係ありません。`,
     viewOnGithub: "GitHubで見る",
     languageSwitcher: "言語切替",
   },
 };
-
-// 更新网页标题和HTML lang属性
-function updateDocumentLang(lang: Language) {
-  // 更新HTML lang属性
-  document.documentElement.lang = {
-    zh: "zh-CN",
-    en: "en-US",
-    ja: "ja-JP",
-  }[lang];
-
-  // 更新网页标题
-  document.title = i18nMessages[lang].title;
-}
 
 // 切换语言的函数
 export function switchLanguage(lang: Language) {
@@ -62,6 +59,17 @@ export function getText(key: keyof typeof i18nMessages.zh) {
 }
 
 // 监听语言变化
-watch(currentLanguage, (newLang) => {
-  updateDocumentLang(newLang);
+watch(currentLanguage, (lang) => {
+  // 更新HTML lang属性
+  document.documentElement.lang = {
+    zh: "zh-CN",
+    en: "en-US",
+    ja: "ja-JP",
+  }[lang];
+
+  // 更新网页标题
+  document.title = i18nMessages[lang].title;
+
+  // 保存当前语言到localStorage
+  localStorage.setItem("lang", lang);
 });

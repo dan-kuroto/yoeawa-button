@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { currentLanguage, i18nMessages, switchLanguage } from "@/i18n";
 import type { Language } from "@/types";
+
+const showLanguageMenu = ref(false);
 
 const languages: Array<{ code: Language; name: string }> = [
   { code: "zh", name: "中文" },
@@ -10,6 +13,14 @@ const languages: Array<{ code: Language; name: string }> = [
 
 const handleLanguageSwitch = (lang: Language) => {
   switchLanguage(lang);
+  closeLanguageMenu();
+};
+
+const openLanguageMenu = () => {
+  showLanguageMenu.value = true;
+};
+const closeLanguageMenu = () => {
+  showLanguageMenu.value = false;
 };
 </script>
 
@@ -21,21 +32,37 @@ const handleLanguageSwitch = (lang: Language) => {
       </div>
       <div class="nav-links">
         <a
-          href="https://github.com/your-username/yoeawa-button"
+          href="https://github.com/dan-kuroto/yoeawa-button"
           target="_blank"
-          class="github-link"
+          class="icon-link"
+          :title="i18nMessages[currentLanguage].viewOnGithub"
         >
-          {{ i18nMessages[currentLanguage].viewOnGithub }}
+          <img src="@/assets/images/github.svg" alt="GitHub" class="icon" />
         </a>
-        <div class="language-switcher">
-          <span>{{ i18nMessages[currentLanguage].languageSwitcher }}:</span>
-          <div class="language-buttons">
+
+        <div
+          class="language-dropdown"
+          @mouseleave="closeLanguageMenu"
+          @mouseenter="openLanguageMenu"
+        >
+          <div
+            class="icon-link"
+            :title="i18nMessages[currentLanguage].languageSwitcher"
+          >
+            <img
+              src="@/assets/images/language.svg"
+              alt="Language"
+              class="icon"
+            />
+          </div>
+
+          <div class="language-menu" :class="{ active: showLanguageMenu }">
             <button
               v-for="lang in languages"
               :key="lang.code"
-              @click="handleLanguageSwitch(lang.code as Language)"
+              @click="handleLanguageSwitch(lang.code)"
               :class="{ active: currentLanguage === lang.code }"
-              class="lang-button"
+              class="language-option"
             >
               {{ lang.name }}
             </button>
@@ -77,42 +104,88 @@ const handleLanguageSwitch = (lang: Language) => {
   gap: 20px;
 }
 
-.github-link {
-  color: white;
-  text-decoration: none;
+.icon-link {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
-}
-
-.github-link:hover {
-  text-decoration: underline;
-}
-
-.language-switcher {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.language-buttons {
-  display: flex;
-  gap: 5px;
-}
-
-.lang-button {
-  background: none;
-  border: 1px solid white;
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
   transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
 }
 
-.lang-button.active {
+.icon-link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* 将图标变为白色 */
+}
+
+.language-dropdown {
+  position: relative;
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
   background-color: white;
-  color: #ffa7d5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 110px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 200;
+}
+
+.language-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-option {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 8px 12px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.language-option:hover {
+  background-color: #f0f0f0;
+}
+
+.language-option.active {
+  background-color: #ffa7d5;
+  color: white;
+  font-weight: bold;
+}
+
+.language-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 14px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  transform: rotate(45deg);
 }
 
 @media (max-width: 768px) {
@@ -122,14 +195,26 @@ const handleLanguageSwitch = (lang: Language) => {
   }
 
   .nav-links {
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
+    width: auto;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
   }
 
-  .language-switcher {
-    width: 100%;
-    justify-content: center;
+  .language-menu {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  .language-menu.active {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .language-menu::before {
+    right: auto;
+    left: 50%;
+    margin-left: -6px;
   }
 }
 </style>

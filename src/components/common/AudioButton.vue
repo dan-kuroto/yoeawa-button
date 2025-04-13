@@ -49,13 +49,11 @@ const playAudio = () => {
   background-color: #ffa7d5;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
+  border-radius: 100px;
+  padding: 7px 18px;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 5px;
-  min-width: 120px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,13 +80,6 @@ const playAudio = () => {
   }
   100% {
     box-shadow: 0 0 0 0 rgba(255, 167, 213, 0);
-  }
-}
-
-@media (max-width: 768px) {
-  .audio-button {
-    min-width: 100px;
-    padding: 10px 15px;
   }
 }
 </style>

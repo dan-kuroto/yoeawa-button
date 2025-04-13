@@ -5,14 +5,23 @@ import { currentLanguage, i18nMessages } from "@/i18n";
 <template>
   <div class="about-card">
     <div class="avatar-section">
-      <div class="avatar-container">
-        <!-- 这里放主播的头像，先留空 -->
-        <div class="avatar-placeholder">夜永awa</div>
-      </div>
+      <a
+        class="avatar-container"
+        href="https://space.bilibili.com/3546754395933597"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="avatar-image"
+          src="@/assets/images/icon.jpg"
+          alt="夜永awa"
+          :title="i18nMessages[currentLanguage].name"
+        />
+      </a>
     </div>
     <div class="info-section">
-      <p>{{ i18nMessages[currentLanguage].projectIntro }}</p>
-      <p class="disclaimer">{{ i18nMessages[currentLanguage].disclaimer }}</p>
+      <p>{{ i18nMessages[currentLanguage].welcome }}</p>
+      <p class="tips">{{ i18nMessages[currentLanguage].tips }}</p>
     </div>
   </div>
 </template>
@@ -32,6 +41,7 @@ import { currentLanguage, i18nMessages } from "@/i18n";
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .avatar-container {
@@ -47,13 +57,18 @@ import { currentLanguage, i18nMessages } from "@/i18n";
   font-weight: bold;
 }
 
-.avatar-placeholder {
-  font-size: 1.2rem;
-  text-align: center;
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .info-section {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  white-space: pre-wrap;
 }
 
 .info-section h2 {
@@ -64,11 +79,11 @@ import { currentLanguage, i18nMessages } from "@/i18n";
   margin-bottom: 15px;
 }
 
-.disclaimer {
+.tips {
   font-size: 0.9rem;
   color: #777;
-  margin-top: 15px;
-  padding-top: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
   border-top: 1px dashed #ddd;
 }
 

@@ -40,7 +40,7 @@ defineProps<{
 .buttons-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  padding-top: 10px;
+  gap: 10px;
+  padding-top: 14px;
 }
 </style>

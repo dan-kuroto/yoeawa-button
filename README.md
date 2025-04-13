@@ -6,6 +6,4 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 ## TODO
 
-- [ ] 样式优化
-- [ ] 标题根据语言变化
-- [ ] 加favicon、头像、语音
+- [ ] 播放音频时按钮上显示进度

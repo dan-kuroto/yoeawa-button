@@ -60,7 +60,11 @@ export const buttonGroups: ButtonGroup[] = [
       },
       {
         id: "test7",
-        text: { zh: "测试7测试7测试7测试7测试7测试7测试7测试7测试7", en: "Test 7", ja: "テスト7" },
+        text: {
+          zh: "测试7测试7测试7测试7测试7测试7测试7测试7测试7",
+          en: "Test 7",
+          ja: "テスト7",
+        },
         audioUrl: "/audio/test7.mp3",
       }, // 实际音频文件路径待添加
     ],

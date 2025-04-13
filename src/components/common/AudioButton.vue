@@ -54,7 +54,7 @@ const playAudio = () => {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 8px;
+  margin: 5px;
   min-width: 120px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -85,7 +85,6 @@ const playAudio = () => {
   }
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
   .audio-button {
     min-width: 100px;

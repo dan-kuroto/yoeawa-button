@@ -8,25 +8,22 @@ export const currentLanguage = ref<Language>("zh");
 export const i18nMessages = {
   zh: {
     title: "夜永awa按钮",
-    about: "关于",
     projectIntro: "这是夜永awa的音声按钮站",
-    disclaimer: "音频版权归夜永awa所有，仅供粉丝交流使用",
+    disclaimer: "声明：本项目仅为粉丝作品，和夜永awa本人没有关联",
     viewOnGithub: "在GitHub上查看",
     languageSwitcher: "切换语言",
   },
   en: {
     title: "Yoeawa Button",
-    about: "About",
     projectIntro: "This is a voice button website for Yoeawa",
-    disclaimer: "Audio copyright belongs to Yoeawa, for fans only",
+    disclaimer: "Disclaimer: This project is a fan work and has no affiliation with Yoeawa",
     viewOnGithub: "View on GitHub",
     languageSwitcher: "Switch Language",
   },
   ja: {
     title: "夜永awaボタン",
-    about: "概要",
     projectIntro: "これは夜永awaの音声ボタンサイトです",
-    disclaimer: "音声の著作権は夜永awaに帰属し、ファンのみ使用可能です",
+    disclaimer: "声明：このプロジェクトはファン作品であり、夜永awa本人とは関係ありません",
     viewOnGithub: "GitHubで見る",
     languageSwitcher: "言語切替",
   },

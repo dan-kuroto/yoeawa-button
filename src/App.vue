@@ -22,29 +22,7 @@ import ButtonGroup from "@/components/common/ButtonGroup.vue";
   </div>
 </template>
 
-<style>
-:root {
-  --primary-color: #ffa7d5;
-  --primary-light: #ffcce5;
-  --primary-dark: #ff8ac0;
-  --text-color: #333;
-  --background-color: #f9f3f6;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Microsoft YaHei", "Segoe UI", Tahoma, Geneva, Verdana,
-    sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
+<style scoped>
 .app {
   display: flex;
   flex-direction: column;
@@ -57,17 +35,16 @@ body {
   max-width: 1240px;
   margin: 0 auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .footer {
-  background-color: var(--primary-color);
-  color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 30px;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
   .main-content {
     padding: 10px;

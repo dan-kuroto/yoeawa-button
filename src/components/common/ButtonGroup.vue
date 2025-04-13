@@ -27,7 +27,6 @@ defineProps<{
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 20px auto;
   max-width: 1200px;
 }
 
@@ -41,14 +40,7 @@ defineProps<{
 .buttons-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px 0;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .buttons-container {
-    justify-content: center;
-  }
+  gap: 5px;
+  padding-top: 10px;
 }
 </style>

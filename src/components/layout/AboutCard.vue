@@ -11,7 +11,6 @@ import { currentLanguage, i18nMessages } from "@/i18n";
       </div>
     </div>
     <div class="info-section">
-      <h2>{{ i18nMessages[currentLanguage].about }}</h2>
       <p>{{ i18nMessages[currentLanguage].projectIntro }}</p>
       <p class="disclaimer">{{ i18nMessages[currentLanguage].disclaimer }}</p>
     </div>
@@ -24,7 +23,6 @@ import { currentLanguage, i18nMessages } from "@/i18n";
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 20px auto;
   max-width: 1200px;
   display: flex;
   gap: 30px;
@@ -74,7 +72,6 @@ import { currentLanguage, i18nMessages } from "@/i18n";
   border-top: 1px dashed #ddd;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
   .about-card {
     flex-direction: column;

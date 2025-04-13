@@ -115,7 +115,6 @@ const handleLanguageSwitch = (lang: Language) => {
   color: #ffa7d5;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;

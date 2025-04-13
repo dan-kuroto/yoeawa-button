@@ -7,29 +7,29 @@ const props = defineProps<{
   button: AudioButtonType;
 }>();
 
-const audio = ref<HTMLAudioElement | null>(null);
+let audio: HTMLAudioElement | null = null;
 const isPlaying = ref(false);
 
 const playAudio = () => {
-  if (!audio.value) {
-    audio.value = new Audio(props.button.audioUrl);
+  if (!audio) {
+    audio = new Audio(props.button.audioUrl);
 
-    audio.value.addEventListener("ended", () => {
+    audio.addEventListener("ended", () => {
       isPlaying.value = false;
     });
 
-    audio.value.addEventListener("pause", () => {
+    audio.addEventListener("pause", () => {
       isPlaying.value = false;
     });
   }
 
   // 如果已经在播放，则停止当前播放并重新开始
   if (isPlaying.value) {
-    audio.value.pause();
-    audio.value.currentTime = 0;
+    audio.pause();
+    audio.currentTime = 0;
   }
 
-  audio.value.play();
+  audio.play();
   isPlaying.value = true;
 };
 </script>

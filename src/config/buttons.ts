@@ -3,6 +3,34 @@ import type { ButtonGroup } from "@/types";
 // 按钮分组，每个分组包含多个按钮
 export const buttonGroups: ButtonGroup[] = [
   {
+    id: "kimeserifu",
+    title: {
+      zh: "招牌台词",
+      en: "Catchphrases",
+      ja: "決めセリフ",
+    },
+    buttons: [
+      {
+        id: "op",
+        text: {
+          zh: "开场白",
+          en: "Opening Line",
+          ja: "オープニングセリフ",
+        },
+        audioUrl: new URL("@/assets/audio/开场白.mp3", import.meta.url).href,
+      },
+      {
+        id: "ed",
+        text: {
+          zh: "结束语",
+          en: "Closing Line",
+          ja: "エンディングセリフ",
+        },
+        audioUrl: new URL("@/assets/audio/结束语.mp3", import.meta.url).href,
+      },
+    ],
+  },
+  {
     id: "greetings",
     title: {
       zh: "问候语",
@@ -11,117 +39,276 @@ export const buttonGroups: ButtonGroup[] = [
     },
     buttons: [
       {
-        id: "hello",
+        id: "good afternoon",
         text: {
-          zh: "你好",
-          en: "Hello",
-          ja: "こんにちは",
+          zh: "凡人们~中午好",
+          en: "Good afternoon, mortals",
+          ja: "こんにちは、凡人ども",
         },
-        audioUrl: "/audio/hello.mp3", // 实际音频文件路径待添加
+        audioUrl: new URL("@/assets/audio/凡人们中午好.mp3", import.meta.url)
+          .href,
       },
       {
-        id: "goodbye",
+        id: "see you tonight",
         text: {
-          zh: "再见",
-          en: "Goodbye",
-          ja: "さようなら",
+          zh: "晚上见晚上见",
+          en: "See you tonight",
+          ja: "夜にまた",
         },
-        audioUrl: "/audio/goodbye.mp3", // 实际音频文件路径待添加
+        audioUrl: new URL("@/assets/audio/晚上见晚上见.mp3", import.meta.url)
+          .href,
       },
       {
-        id: "test1",
-        text: { zh: "测试1", en: "Test 1", ja: "テスト1" },
-        audioUrl: "/audio/test1.mp3",
-      }, // 实际音频文件路径待添加
-      {
-        id: "test2",
-        text: { zh: "测试2", en: "Test 2", ja: "テスト2" },
-        audioUrl: "/audio/test2.mp3",
-      },
-      {
-        id: "test3",
-        text: { zh: "测试3", en: "Test 3", ja: "テスト3" },
-        audioUrl: "/audio/test3.mp3",
-      }, // 实际音频文件路径待添加
-      {
-        id: "test4",
-        text: { zh: "测试4", en: "Test 4", ja: "テスト4" },
-        audioUrl: "/audio/test4.mp3",
-      }, // 实际音频文件路径待添加
-      {
-        id: "test5",
-        text: { zh: "测试5", en: "Test 5", ja: "テスト5" },
-        audioUrl: "/audio/test5.mp3",
-      }, // 实际音频文件路径待添加
-      {
-        id: "test6",
-        text: { zh: "测试6", en: "Test 6", ja: "テスト6" },
-        audioUrl: "/audio/test6.mp3",
-      },
-      {
-        id: "test7",
+        id: "bye bye foam",
         text: {
-          zh: "测试7测试7测试7测试7测试7测试7测试7测试7测试7",
-          en: "Test 7",
-          ja: "テスト7",
+          zh: "拜拜foam",
+          en: "Bye bye~ foam",
+          ja: "バイバイfoam",
         },
-        audioUrl: "/audio/test7.mp3",
-      }, // 实际音频文件路径待添加
-    ],
-  },
-  {
-    id: "catchphrases",
-    title: {
-      zh: "经典语录",
-      en: "Catchphrases",
-      ja: "決め台詞",
-    },
-    buttons: [
-      {
-        id: "phrase1",
-        text: {
-          zh: "经典语录1",
-          en: "Catchphrase 1",
-          ja: "決め台詞 1",
-        },
-        audioUrl: "/audio/phrase1.mp3", // 实际音频文件路径待添加
-      },
-      {
-        id: "phrase2",
-        text: {
-          zh: "经典语录2",
-          en: "Catchphrase 2",
-          ja: "決め台詞 2",
-        },
-        audioUrl: "/audio/phrase2.mp3", // 实际音频文件路径待添加
+        audioUrl: new URL("@/assets/audio/拜拜foam.mp3", import.meta.url).href,
       },
     ],
   },
   {
-    id: "reactions",
+    id: "strange talk",
     title: {
-      zh: "反应",
-      en: "Reactions",
-      ja: "リアクション",
+      zh: "怪话",
+      en: "Strange Talk",
+      ja: "変な言葉",
     },
     buttons: [
       {
-        id: "laugh",
+        id: "mother",
         text: {
-          zh: "笑声",
-          en: "Laugh",
-          ja: "笑い声",
+          zh: "妈妈？谁是你妈妈呀",
+          en: "Mom? Who's your mom?",
+          ja: "ママ？誰が君のママなのよ",
         },
-        audioUrl: "/audio/laugh.mp3", // 实际音频文件路径待添加
+        audioUrl: new URL("@/assets/audio/谁是你妈妈呀.mp3", import.meta.url)
+          .href,
       },
       {
-        id: "surprised",
+        id: "20year",
         text: {
-          zh: "惊讶",
-          en: "Surprised",
-          ja: "驚き",
+          zh: "吾辈才20岁呢",
+          en: "I'm only 20 years old",
+          ja: "吾輩はまだ二十歳ですよ",
         },
-        audioUrl: "/audio/surprised.mp3", // 实际音频文件路径待添加
+        audioUrl: new URL("@/assets/audio/吾辈才20岁呢.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "20year",
+        text: {
+          zh: "跟你结婚？什么呀！",
+          en: "Marry you? What are you talking about?",
+          ja: "君と結婚？何を言ってるの？",
+        },
+        audioUrl: new URL(
+          "@/assets/audio/跟你结婚？什么呀.mp3",
+          import.meta.url
+        ).href,
+      },
+      {
+        id: "can't kiss yet",
+        text: {
+          zh: "还不是可以么么的关系",
+          en: "can't kiss yet",
+          ja: "まだちゅっしちゃだめ～",
+        },
+        audioUrl: new URL(
+          "@/assets/audio/还不是可以么么的关系.mp3",
+          import.meta.url
+        ).href,
+      },
+      {
+        id: "sorry",
+        text: {
+          zh: "I'm so sorry",
+          en: "I'm so sorry",
+          ja: "I'm so sorry",
+        },
+        audioUrl: new URL("@/assets/audio/Im_so_sorry.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "So strange",
+        text: {
+          zh: "好怪",
+          en: "So strange",
+          ja: "変だね",
+        },
+        audioUrl: new URL("@/assets/audio/好怪.mp3", import.meta.url).href,
+      },
+      {
+        id: "So scary",
+        text: {
+          zh: "哈人",
+          en: "So scary",
+          ja: "怖い",
+        },
+        audioUrl: new URL("@/assets/audio/哈人.mp3", import.meta.url).href,
+      },
+      {
+        id: "scared",
+        text: {
+          zh: "吓一跳！哎呀（委屈）",
+          en: "Scared me! Oh no (wronged)",
+          ja: "びっくりした！ああ（不満）",
+        },
+        audioUrl: new URL("@/assets/audio/吓一跳.mp3", import.meta.url).href,
+      },
+    ],
+  },
+  {
+    id: "Cute Sounds",
+    title: {
+      zh: "可爱小动静",
+      en: "Cute Sounds",
+      ja: "かわいい音",
+    },
+    buttons: [
+      {
+        id: "1",
+        text: {
+          zh: "怪叫",
+          en: "Strange Scream",
+          ja: "奇妙な叫び声",
+        },
+        audioUrl: new URL("@/assets/audio/怪叫.mp3", import.meta.url).href,
+      },
+      {
+        id: "2",
+        text: {
+          zh: "嘿嘿",
+          en: "laugh",
+          ja: "へへ",
+        },
+        audioUrl: new URL("@/assets/audio/嘿嘿.mp3", import.meta.url).href,
+      },
+      {
+        id: "3",
+        text: {
+          zh: "喵喵喵",
+          en: "Meow meow meow",
+          ja: "ニャーニャーニャー",
+        },
+        audioUrl: new URL("@/assets/audio/喵喵喵.mp3", import.meta.url).href,
+      },
+      {
+        id: "4",
+        text: {
+          zh: "喵喵喵喵喵喵…",
+          en: "Meow meow meow meow meow...",
+          ja: "ニャーニャーニャーニャーニャー…",
+        },
+        audioUrl: new URL("@/assets/audio/喵喵喵喵喵喵.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "5",
+        text: {
+          zh: "喵喵喵喵喵喵2",
+          en: "Meow meow meow meow meow 2",
+          ja: "ニャーニャーニャーニャーニャー2",
+        },
+        audioUrl: new URL("@/assets/audio/喵喵喵喵喵喵2.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "6",
+        text: {
+          zh: "喵喵喵喵喵喵3",
+          en: "Meow meow meow meow meow 3",
+          ja: "ニャーニャーニャーニャーニャー3",
+        },
+        audioUrl: new URL("@/assets/audio/喵喵喵喵喵喵3.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "7",
+        text: {
+          zh: "喵喵喵喵喵喵4",
+          en: "Meow meow meow meow meow 4",
+          ja: "ニャーニャーニャーニャーニャー4",
+        },
+        audioUrl: new URL("@/assets/audio/喵喵喵喵喵喵4.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "8",
+        text: {
+          zh: "喵喵喵喵喵喵5",
+          en: "Meow meow meow meow meow 5",
+          ja: "ニャーニャーニャーニャーニャー5",
+        },
+        audioUrl: new URL("@/assets/audio/喵喵喵喵喵喵5.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "9",
+        text: {
+          zh: "叹气",
+          en: "Sigh",
+          ja: "ため息",
+        },
+        audioUrl: new URL("@/assets/audio/叹气.mp3", import.meta.url).href,
+      },
+      {
+        id: "10",
+        text: {
+          zh: "防空警报",
+          en: "Air Raid Siren",
+          ja: "防空警報",
+        },
+        audioUrl: new URL("@/assets/audio/防空警报.mp3", import.meta.url).href,
+      },
+      {
+        id: "11",
+        text: {
+          zh: "蚊子叫",
+          en: "Mosquito Sound",
+          ja: "蚊の音",
+        },
+        audioUrl: new URL("@/assets/audio/蚊子叫.mp3", import.meta.url).href,
+      },
+      {
+        id: "12",
+        text: {
+          zh: "惊叫",
+          en: "Scream",
+          ja: "恐怖な叫び声",
+        },
+        audioUrl: new URL("@/assets/audio/惊叫.mp3", import.meta.url).href,
+      },
+    ],
+  },
+  {
+    id: "others",
+    title: {
+      zh: "杂",
+      en: "Others",
+      ja: "雑",
+    },
+    buttons: [
+      {
+        id: "1",
+        text: {
+          zh: "好好好~",
+          en: "ok~",
+          ja: "いいよ～",
+        },
+        audioUrl: new URL("@/assets/audio/好好好.mp3", import.meta.url).href,
+      },
+      {
+        id: "2",
+        text: {
+          zh: "真的是真的是",
+          en: "Geez...",
+          ja: "もう…",
+        },
+        audioUrl: new URL("@/assets/audio/真的是真的是.mp3", import.meta.url)
+          .href,
       },
     ],
   },

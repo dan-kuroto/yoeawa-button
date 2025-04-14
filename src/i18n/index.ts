@@ -25,6 +25,9 @@ export const i18nMessages = {
 声明：本项目仅为粉丝作品，和夜永awa本人没有关联。`,
     viewOnGithub: "在GitHub上查看",
     languageSwitcher: "切换语言",
+    loopPlayToggle: "循环播放",
+    loopPlayEnabled: "循环已开启",
+    loopPlayDisabled: "循环已关闭",
   },
   en: {
     name: "Yoeawa",
@@ -35,6 +38,9 @@ How to add: Submit a Pull Request or Issue on Github.
 Disclaimer: This project is a fan work and has no affiliation with Yoeawa herself.`,
     viewOnGithub: "View on GitHub",
     languageSwitcher: "Switch Language",
+    loopPlayToggle: "Loop Playback",
+    loopPlayEnabled: "Loop Enabled",
+    loopPlayDisabled: "Loop Disabled",
   },
   ja: {
     name: "夜永awa",
@@ -45,6 +51,9 @@ Disclaimer: This project is a fan work and has no affiliation with Yoeawa hersel
 免責事項：このプロジェクトはファン作品であり、夜永awa本人とは一切関係ありません。`,
     viewOnGithub: "GitHubで見る",
     languageSwitcher: "言語切替",
+    loopPlayToggle: "ループ再生",
+    loopPlayEnabled: "ループオン",
+    loopPlayDisabled: "ループオフ",
   },
 };
 

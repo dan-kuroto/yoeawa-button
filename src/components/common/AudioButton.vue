@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, onUnmounted } from "vue";
+import { ref, onUnmounted, watch } from "vue";
 import type { AudioButton as AudioButtonType } from "@/types";
 import { currentLanguage } from "@/i18n";
+import { loopPlayEnabled } from "@/config/audioControl";
 
 const props = defineProps<{
   button: AudioButtonType;
@@ -26,9 +27,16 @@ const toggleAudio = () => {
     audio = new Audio(props.button.audioUrl);
 
     audio.addEventListener("ended", () => {
-      isPlaying.value = false;
-      progress.value = 0;
-      cancelAnimationFrame(progressRaf);
+      if (loopPlayEnabled.value) {
+        // 如果开启了循环播放，则重新播放
+        progress.value = 0;
+        audio?.play();
+      } else {
+        // 否则停止播放
+        isPlaying.value = false;
+        progress.value = 0;
+        cancelAnimationFrame(progressRaf);
+      }
     });
 
     audio.addEventListener("pause", () => {
@@ -44,12 +52,20 @@ const toggleAudio = () => {
     cancelAnimationFrame(progressRaf);
   } else {
     // 否则开始播放
+    audio.loop = loopPlayEnabled.value;
     audio.play();
     isPlaying.value = true;
     cancelAnimationFrame(progressRaf);
     progressRaf = requestAnimationFrame(updateProgress);
   }
 };
+
+// 监听循环播放状态的变化
+watch(loopPlayEnabled, (newValue) => {
+  if (audio) {
+    audio.loop = newValue;
+  }
+});
 
 onUnmounted(() => {
   cancelAnimationFrame(progressRaf);

@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { currentLanguage, i18nMessages, switchLanguage } from "@/i18n";
+import { loopPlayEnabled, toggleLoopPlay } from "@/config/audioControl";
 import type { Language } from "@/types";
+import repeatOutlineIcon from "@/assets/images/repeat-outline.svg";
+import doubleArrowRightIcon from "@/assets/images/double-arrow-right-outline.svg";
 
 const showLanguageMenu = ref(false);
 
@@ -10,6 +13,11 @@ const languages: Array<{ code: Language; name: string }> = [
   { code: "en", name: "English" },
   { code: "ja", name: "日本語" },
 ];
+
+// 根据循环状态计算显示的图标
+const loopIcon = computed(() => {
+  return loopPlayEnabled.value ? repeatOutlineIcon : doubleArrowRightIcon;
+});
 
 const handleLanguageSwitch = (lang: Language) => {
   switchLanguage(lang);
@@ -22,6 +30,10 @@ const openLanguageMenu = () => {
 const closeLanguageMenu = () => {
   showLanguageMenu.value = false;
 };
+
+const handleLoopToggle = () => {
+  toggleLoopPlay();
+};
 </script>
 
 <template>
@@ -30,7 +42,23 @@ const closeLanguageMenu = () => {
       <div class="nav-title">
         {{ i18nMessages[currentLanguage].title }}
       </div>
-      <div class="nav-links">
+      <div class="nav-btns">
+        <div
+          class="icon-link"
+          :title="
+            loopPlayEnabled
+              ? i18nMessages[currentLanguage].loopPlayEnabled
+              : i18nMessages[currentLanguage].loopPlayDisabled
+          "
+          @click="handleLoopToggle"
+        >
+          <img
+            :src="loopIcon"
+            :alt="i18nMessages[currentLanguage].loopPlayToggle"
+            class="icon"
+          />
+        </div>
+
         <a
           href="https://github.com/dan-kuroto/yoeawa-button"
           target="_blank"
@@ -48,6 +76,7 @@ const closeLanguageMenu = () => {
           <div
             class="icon-link"
             :title="i18nMessages[currentLanguage].languageSwitcher"
+            @click="openLanguageMenu"
           >
             <img
               src="@/assets/images/language.svg"
@@ -98,7 +127,7 @@ const closeLanguageMenu = () => {
   font-weight: bold;
 }
 
-.nav-links {
+.nav-btns {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -194,11 +223,10 @@ const closeLanguageMenu = () => {
     gap: 10px;
   }
 
-  .nav-links {
+  .nav-btns {
     width: auto;
-    flex-direction: row;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
   }
 
   .language-menu {

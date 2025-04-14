@@ -158,6 +158,65 @@ export const buttonGroups: ButtonGroup[] = [
         },
         audioUrl: new URL("@/assets/audio/吓一跳.mp3", import.meta.url).href,
       },
+      {
+        id: "kugimiya",
+        text: {
+          zh: "八嘎hentai无路赛",
+          en: "baka hentai urusai",
+          ja: "バカ変態うるさい",
+        },
+        audioUrl: new URL(
+          "@/assets/audio/八嘎hentai无路赛.mp3",
+          import.meta.url
+        ).href,
+      },
+      {
+        id: "come",
+        text: {
+          zh: "你给我过来！",
+          en: "Come here!",
+          ja: "こっち来て！",
+        },
+        audioUrl: new URL("@/assets/audio/你给我过来.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "kneel1",
+        text: {
+          zh: "foam跪下！",
+          en: "Kneel, foam!",
+          ja: "ひざまずけ、foam！",
+        },
+        audioUrl: new URL("@/assets/audio/foam跪下.mp3", import.meta.url).href,
+      },
+      {
+        id: "kneel2",
+        text: {
+          zh: "凡人跪下！",
+          en: "Kneel, mortals!",
+          ja: "ひざまずけ、凡人ども！",
+        },
+        audioUrl: new URL("@/assets/audio/凡人跪下.mp3", import.meta.url).href,
+      },
+      {
+        id: "kneel3",
+        text: {
+          zh: "人类跪下！",
+          en: "Kneel, humans!",
+          ja: "ひざまずけ、人間ども！",
+        },
+        audioUrl: new URL("@/assets/audio/人类跪下.mp3", import.meta.url).href,
+      },
+      {
+        id: "kneel4",
+        text: {
+          zh: "碳基生物跪下！",
+          en: "Kneel, carbon-based lifeforms!",
+          ja: "ひざまずけ、炭素生命！",
+        },
+        audioUrl: new URL("@/assets/audio/碳基生物跪下.mp3", import.meta.url)
+          .href,
+      },
     ],
   },
   {
@@ -280,6 +339,18 @@ export const buttonGroups: ButtonGroup[] = [
           ja: "恐怖な叫び声",
         },
         audioUrl: new URL("@/assets/audio/惊叫.mp3", import.meta.url).href,
+      },
+      {
+        id: "13",
+        text: {
+          zh: "foam foam 酱酱 酱酱",
+          en: "foam foam JangJang JangJang",
+          ja: "foam foam ジャンジャン ジャンジャン",
+        },
+        audioUrl: new URL(
+          "@/assets/audio/foamfoam酱酱酱酱.mp3",
+          import.meta.url
+        ).href,
       },
     ],
   },

@@ -26,8 +26,8 @@ export const i18nMessages = {
     viewOnGithub: "在GitHub上查看",
     languageSwitcher: "切换语言",
     loopPlayToggle: "循环播放",
-    loopPlayEnabled: "循环已开启",
-    loopPlayDisabled: "循环已关闭",
+    loopPlayEnabled: "洗脑循环已开启",
+    loopPlayDisabled: "洗脑循环已关闭",
   },
   en: {
     name: "Yoeawa",

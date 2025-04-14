@@ -47,6 +47,7 @@ import { currentLanguage, i18nMessages } from "@/i18n";
 .avatar-container {
   width: 120px;
   height: 120px;
+  border: 3px solid #ffa7d5;
   border-radius: 50%;
   overflow: hidden;
   display: flex;

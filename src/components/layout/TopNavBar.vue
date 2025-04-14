@@ -39,9 +39,7 @@ const handleLoopToggle = () => {
 <template>
   <nav class="top-nav">
     <div class="nav-content">
-      <div class="nav-title">
-        {{ i18nMessages[currentLanguage].title }}
-      </div>
+      <div class="nav-title">🫧 {{ i18nMessages[currentLanguage].title }}</div>
       <div class="nav-btns">
         <div
           class="icon-link"
@@ -119,7 +117,7 @@ const handleLoopToggle = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 15px 10px;
 }
 
 .nav-title {

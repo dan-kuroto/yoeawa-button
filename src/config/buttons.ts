@@ -171,6 +171,16 @@ export const buttonGroups: ButtonGroup[] = [
         ).href,
       },
       {
+        id: "kugimiya_cn",
+        text: {
+          zh: "钉宫三连（中文版）",
+          en: "Kugimiya 3 combo (Chinese version)",
+          ja: "バカ変態うるさい（中国語版）",
+        },
+        audioUrl: new URL("@/assets/audio/钉宫三连中文版.mp3", import.meta.url)
+          .href,
+      },
+      {
         id: "come",
         text: {
           zh: "你给我过来！",

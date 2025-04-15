@@ -26,8 +26,7 @@ export const i18nMessages = {
     viewOnGithub: "在GitHub上查看",
     languageSwitcher: "切换语言",
     loopPlayToggle: "循环播放",
-    loopPlayEnabled: "洗脑循环已开启",
-    loopPlayDisabled: "洗脑循环已关闭",
+    concurrentPlayToggle: "同时播放",
   },
   en: {
     name: "Yoeawa",
@@ -39,8 +38,7 @@ Disclaimer: This project is a fan work and has no affiliation with Yoeawa hersel
     viewOnGithub: "View on GitHub",
     languageSwitcher: "Switch Language",
     loopPlayToggle: "Loop Playback",
-    loopPlayEnabled: "Loop Enabled",
-    loopPlayDisabled: "Loop Disabled",
+    concurrentPlayToggle: "Concurrent Play",
   },
   ja: {
     name: "夜永awa",
@@ -52,8 +50,7 @@ Disclaimer: This project is a fan work and has no affiliation with Yoeawa hersel
     viewOnGithub: "GitHubで見る",
     languageSwitcher: "言語切替",
     loopPlayToggle: "ループ再生",
-    loopPlayEnabled: "ループオン",
-    loopPlayDisabled: "ループオフ",
+    concurrentPlayToggle: "同時再生",
   },
 };
 

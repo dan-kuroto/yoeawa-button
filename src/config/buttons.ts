@@ -227,6 +227,26 @@ export const buttonGroups: ButtonGroup[] = [
         audioUrl: new URL("@/assets/audio/碳基生物跪下.mp3", import.meta.url)
           .href,
       },
+      {
+        id: "hentai",
+        text: {
+          zh: "你这个变态",
+          en: "You pervert",
+          ja: "この変態",
+        },
+        audioUrl: new URL("@/assets/audio/你这个变态.mp3", import.meta.url)
+          .href,
+      },
+      {
+        id: "hentai2",
+        text: {
+          zh: "你这个变态2",
+          en: "You pervert 2",
+          ja: "この変態2",
+        },
+        audioUrl: new URL("@/assets/audio/你这个变态2.mp3", import.meta.url)
+          .href,
+      },
     ],
   },
   {

@@ -63,8 +63,8 @@ const initAudio = () => {
   // 注册事件监听器
   audio.addEventListener("ended", audioEventHandlers.ended);
 
-  // 注册 stop-all-except 事件监听器
-  unsubscribeStopEvent = onAudioEvent("stop-all-except", () => {
+  // 注册 stop-all 事件监听器
+  unsubscribeStopEvent = onAudioEvent("stop-all", () => {
     // 如果当前正在播放，就停止
     if (isPlaying.value) {
       stopAndReset();
@@ -87,11 +87,14 @@ const cleanUpAudio = () => {
   audio = null;
 };
 
-// 从头开始播放
-const replay = () => {
-  // 如果同时播放被禁用，则通知其他按钮停止播放
+const onBtnClick = () => {
+  // 如果在循环播放&同时播放时点击正在播放的按钮，则不需要重新播放（起到暂停的效果）
+  // 后面isPlaying会变成false(哪怕立刻要重新播放)，所以把判断放在前面
+  const needReplay = !isPlaying.value || !loopPlayEnabled.value;
+
+  // 如果同时播放被禁用，则通知所有按钮停止播放
   if (!concurrentPlayEnabled.value) {
-    emitAudioEvent("stop-all-except");
+    emitAudioEvent("stop-all");
   }
 
   if (!audio) {
@@ -99,15 +102,14 @@ const replay = () => {
   }
   if (audio) {
     // 无论当前是否在播放，都先停止并重置
-    audio.pause();
-    audio.currentTime = 0;
-    progress.value = 0;
+    stopAndReset();
 
-    // 然后开始播放
-    audio.loop = loopPlayEnabled.value;
-    audio.play();
-    isPlaying.value = true;
-    progressRaf = requestAnimationFrame(updateProgress);
+    if (needReplay) {
+      audio.loop = loopPlayEnabled.value;
+      audio.play();
+      isPlaying.value = true;
+      progressRaf = requestAnimationFrame(updateProgress);
+    }
   }
 };
 
@@ -135,7 +137,7 @@ onUnmounted(() => {
 
 <template>
   <button
-    @click="replay"
+    @click="onBtnClick"
     class="audio-button"
     :class="{ playing: isPlaying }"
     :style="{ '--progress': `${progress}%` }"

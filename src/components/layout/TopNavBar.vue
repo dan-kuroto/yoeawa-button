@@ -41,7 +41,7 @@ const closeSettingsMenu = () => {
 watch(concurrentPlayEnabled, (newVal) => {
   if (!newVal) {
     // 如果关闭了并发播放，停止所有音频
-    emitAudioEvent("stop-all-except");
+    emitAudioEvent("stop-all");
   }
 });
 </script>

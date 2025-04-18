@@ -67,6 +67,33 @@ export const buttonGroups: ButtonGroup[] = [
         },
         audioUrl: new URL("@/assets/audio/拜拜foam.mp3", import.meta.url).href,
       },
+      {
+        id: "good night meow",
+        text: {
+          zh: "晚安喵",
+          en: "Good night meow",
+          ja: "おやすみニャー",
+        },
+        audioUrl: new URL("@/assets/audio/晚安喵.mp3", import.meta.url).href,
+      },
+      {
+        id: "bye bye meow",
+        text: {
+          zh: "拜拜喵",
+          en: "Bye bye meow",
+          ja: "バイバイニャー",
+        },
+        audioUrl: new URL("@/assets/audio/拜拜喵.mp3", import.meta.url).href,
+      },
+      {
+        id: "goodbye meow",
+        text: {
+          zh: "再见喵",
+          en: "Goodbye meow",
+          ja: "またニャン",
+        },
+        audioUrl: new URL("@/assets/audio/再见喵.mp3", import.meta.url).href,
+      },
     ],
   },
   {
